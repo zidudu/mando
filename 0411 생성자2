@@ -1,0 +1,48 @@
+
+#include <iostream>
+using namespace std;
+//생성자:객체가 생성될때에 필드에게 초기값을 제공하고 필요한 초기화 절차를 실행하는 함수
+class car {
+private:
+	
+	int speed;
+	int gear;
+	string color;
+public:
+	car(int s = 1, int g = 1, string c = "white") {
+		cout << "디폴트 생성자 호출" << endl;
+		speed=s;
+		gear = g;
+		color = c;
+	}
+	car(string c) {
+		//내부에서 내부를 참조
+		car(0, 0, c); //첫번째 생성자를 호출한다
+	}
+	void printInfo() {
+
+		cout << "==============" << endl;
+		cout << "속도:"<<speed << endl;
+		cout << "기어:"<<gear << endl;
+		cout << "색상:"<<color << endl;
+		cout << "==============" << endl;
+	}
+	//객체 생성되고 끝나면 파괴됨
+
+
+};
+
+int main()
+{
+	car c1("white");
+	c1.printInfo();
+	car c2("red");
+	c2.printInfo();
+	return 0;
+
+
+
+
+
+}
+
