@@ -1,0 +1,32 @@
+#include <iostream>
+#include <time.h>
+using namespace std;
+int main()
+{
+
+const int size = 10; // 배열 인덱스 범위 값 넣을 상수 변수
+	int list[size]; //size를 범위 값에 넣어 초기화
+	int max, person; // 최댓값 변수, 최대로 먹은 사람의 번호 변수
+
+	for (int& elem : list) { // 10명의 사과개수를 입력함
+		cout << "아침에 먹은 사과개수: ";
+		cin >> elem;
+
+	}
+	cout << endl;
+	max = list[0]; //최댓값 변수에 0인덱스 값 넣음
+	person = 0; //사람들 번호값
+	for (int i = 0; i < size; i++) {
+		if (max < list[i]) { //list의 값이 최댓값보다 크다면 max변수에 그 list 인덱스에 있는 값을 넣음
+			max = list[i];
+			person = i; // 사람의 번호를 넣음
+		}
+	}
+	cout << "최댓값=" << max<<endl;
+	cout << "최대 개수를 먹은 사람의 번호: " << person << endl;
+	
+
+
+}
+
+	
