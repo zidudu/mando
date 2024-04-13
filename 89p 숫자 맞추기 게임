@@ -17,7 +17,7 @@ int main()
 			cout << "제시정수 높음\n";
 		if (guess < answer)
 			cout << "제시정수 낮음\n";
-	} while (guess != answer);
+	} while (guess != answer); //guess가 answer과 같으면 while문이 실행이 되지않음
 	cout << "축하 시도횟수 = " << tries << endl;
 
 }
