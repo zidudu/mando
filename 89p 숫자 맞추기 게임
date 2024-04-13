@@ -1,0 +1,24 @@
+#include <iostream>
+#include <time.h>
+using namespace std;
+int main()
+{
+	srand(time(NULL));
+	int answer = rand() % 100;
+	int guess;
+	int tries = 0;
+
+	do {
+		cout << "정답 추측: ";
+		cin >> guess;
+		tries++;
+
+		if (guess > answer)
+			cout << "제시정수 높음\n";
+		if (guess < answer)
+			cout << "제시정수 낮음\n";
+	} while (guess != answer);
+	cout << "축하 시도횟수 = " << tries << endl;
+
+}
+
