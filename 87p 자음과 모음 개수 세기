@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int vowel = 0, consonant = 0;
+	char ch;
+	
+	cout << "영문자를 입력하고 컨트롤 -z를 치세요" << endl;
+	while (cin>>ch) //ch에 asd를 넣으면 a부터 검사하고 s검사 d검사함
+	{
+		switch (ch) //ch의 하나의 문자를 넣음
+		{
+		case 'a': case 'i':case 'e': case '0': case 'u':
+			vowel++; break; //모음일때는 a i e o u이니 그 단어들이 ch일때 모음변수에 1을 추가함
+
+		default:
+			consonant++; break; //모음이 아닐때 자음을 추가시킴
+		}
+	}
+	cout << "모음" << vowel << endl;
+	cout << "자음" << consonant << endl;
+	return 0;
+}
