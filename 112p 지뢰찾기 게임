@@ -1,0 +1,41 @@
+#include <iostream>
+#include <time.h>
+using namespace std;
+
+
+int main() {
+	bool board[10][10] = { 0 };
+	srand(time(NULL));
+
+	//난수 발생해서 30%확률로 지뢰 생성
+	for (int i = 0; i < 10; i++)  //10 *10 =100번 반복
+		for (int j = 0; j < 10; j++)
+			if ((rand() % 100) < 30)//0~99의 수에서 30보다 작다면
+				board[i][j] = true; // 그 배열 인덱스에 true를 넣음
+
+	for (int i = 0; i < 10; i++) {//100번 반복
+		for (int j = 0; j < 10; j++) 
+			if (board[i][j]) //만약 true, 해당 인덱스가 지뢰라면
+				cout << "# "; //지뢰 표시
+			else
+				cout << ". "; //아니면 . 표시
+		cout << endl; //한줄 쓰면 들여쓰기 함
+
+	}
+	return 0;
+
+
+}
+/*
+. . . . . # # . # #
+# . . . . . . # . .
+. # . . # . . . . .
+. . . . . # # . . .
+. . # # . . . . . #
+. . . . # # # . . .
+. . . . . # # . . #
+# . # . . . . # . .
+# . # . . # . # # .
+. . . # . . . . . #
+
+*/
