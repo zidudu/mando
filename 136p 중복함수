@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+int squre(int i) {
+	cout << "squre(int) 호출" << endl;
+	return i * i;
+}
+double squre(double i) {
+	cout << "squre(double) 호출" << endl;
+	return i * i;
+}
+
+int main() {
+	cout << squre(10) << endl;
+	cout << squre(2.0) << endl;
+
+	/*
+	squre(int) 호출
+	100
+	squre(double) 호출
+	4
+	*/
+
+}
