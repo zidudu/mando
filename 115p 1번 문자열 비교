@@ -1,0 +1,22 @@
+#include <iostream>
+#include <time.h>
+using namespace std;
+
+
+int main() {
+	string a;
+	string b;
+	cout << "첫번째 문자열 : ";
+	cin >> a;
+	cout << "두번째 문자열 : ";
+	cin >> b;
+	if (a == b)
+		cout << "두 개의 문자열은 같습니다";
+	else
+		cout << "두 개의 문자열은 다릅니다";
+
+
+
+
+
+}
