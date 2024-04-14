@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	char ch;
+	string solution;
+	string list[] = {
+		"the",
+		"c++",
+		"programming",
+		"language",
+	};
+	int n = rand() % 4; //4개 단어 중 하나 선택
+	solution = list[n]; //그 단어를 선택해 solution변수에 넣음
+	string guess(solution.length(), '_'); //solution 문자열의 길이로 _를 생성
+
+	while (true)
+	{
+		cout << guess << endl; //_ 생성해 맞출 단어 길이 알려줌
+		cout << "글자 입력 : "; 
+		cin >> ch; //단어 입력
+		for (int i = 0; i < solution.length();i++ ) { //정답 문자열의 길이만큼 반복
+			if (ch == solution[i]) { //단어를 정답의 단어 하나하나 비교함
+				guess[i] = ch; //맞으면 guess 위치에 바꿈
+			}
+			
+		}
+		 //다 맞추면 종료
+		if (guess == solution) {
+			cout << "축축!";
+			break;
+
+		
+	}
+
+
+}
