@@ -1,0 +1,38 @@
+#include <iostream>
+#include <time.h>
+using namespace std;
+
+
+int main() {
+	int a;
+	cout << "콜라 물 스프라이트 주스 커피 중 하나 선택: ";
+	cin >> a;
+	
+	switch (a)
+	{
+	case 1:
+		cout << "콜라 선택";
+		break;
+	case 2:
+		cout << "물 선택";
+		break;
+	case 3:
+		cout << "스프라이트 선택";
+		break;
+	case 4:
+		cout << "주스 선택";
+		break;
+
+	case 5:
+		cout << "커피 선택";
+		break;
+
+	default:
+		cout << "오류 돈 반환함";
+
+		break;
+	}
+
+
+
+}
