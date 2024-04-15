@@ -1,0 +1,49 @@
+//private로 하면 외부에서 접근이 되지않아 오류처리가 된다. //그래서 private로 할꺼면 클래스 안에서 값을 지정해주거나 초기화해줘야한다.
+
+#include <iostream>
+// 추상화는 필요한 것만 남기고 전부 삭제하는 과정
+    // 클래스를 통해서 구체화를 한다
+using namespace std;
+class cla {
+public:
+    int speed;
+    int gear;
+    string color;
+    void speedUp() {
+        speed += 10;
+    }
+    void speedDown() {
+        speed -= 10;
+    }
+    void show() {
+        cout << "기본 스피드 :" << speed << endl;
+        speedUp();
+        cout << "스피드 업 :" << speed << endl;
+        speedDown();
+        cout << "스피드 다운 :" << speed << endl;
+        cout << "차의 색깔 :" << color << endl;
+        cout << "기어 :" << gear << endl;
+        cout << endl;
+    }
+};
+
+
+int main()
+{
+    cla car;
+    cla bus;
+    car.speed = 10;
+    car.gear = 3;
+    car.color = "blue";
+
+    bus.speed = 20;
+    bus.gear = 5;
+    bus.color = "yellow";
+
+    car.show();
+    bus.show();
+    
+
+
+
+}
