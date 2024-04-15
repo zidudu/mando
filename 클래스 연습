@@ -1,0 +1,26 @@
+
+
+#include <iostream>
+// 추상화는 필요한 것만 남기고 전부 삭제하는 과정
+    // 클래스를 통해서 구체화를 한다
+using namespace std;
+class cla {
+public:
+    int speed;
+    int gear(int x) {
+        return speed*x;
+    }
+
+};
+
+int main()
+{
+    cla car;
+    int x;
+    car.speed = 10;
+    cout << "기어 :";
+
+    cin >>x ; //기어 입력값
+    cout << "카의 기어스피드" << car.gear(x) << endl; //기어 입력값을 gear멤버함수에 넣어 리턴값 출력
+
+}
