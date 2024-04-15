@@ -1,0 +1,30 @@
+
+#include <iostream>
+using namespace std;
+class rectangle{
+public:
+    int width;
+    int height;
+    int getArea(); //면적 계산해 리턴하는 함수
+};
+
+int rectangle::getArea() {
+    return width*height;
+}
+int main()
+{
+    rectangle rect;
+    rect.width = 3;
+    rect.height = 5;
+    cout << "사각형의 면적: " << rect.getArea() << endl; //출력할때 이렇게 해서 반환값이 출력됨
+
+
+
+
+
+
+
+
+
+
+}
