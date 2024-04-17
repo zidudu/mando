@@ -1,0 +1,57 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+class Book {
+	string title;
+	string autor;
+
+public:
+	Book(string t=" ", string a=" ") {
+		title = t;
+		autor = a;
+	}
+
+	int getTitle() { return title; }
+	int getautor() { return autor; }
+	void setTitle(string t) { return title; }
+	void setautor(string a) { return autor; }
+	void get() {
+		getline(cin, title);
+		getline(cin, autor);
+
+		/*title = "Great C++";
+		autor = "c++";*/
+	}
+	void draw() {
+
+		cout << "책 이름 :" << title << endl;
+		cout << "책 저자 : " << autor << endl;
+	}
+};
+int main()
+{
+	Book book;
+	cout << "책 이름과 저자 입력: ";
+	book.get();
+	
+	book.draw();
+	
+	//접근자 값 넣기
+	Book sid;
+	sid.setTitle("공부하기 싫을때 이 책을 읽어봐!"); //책이름
+	sid.setautor("박삼수"); //저자
+	string bookname = sid.getTitle;
+	stirng bookautor = sid.getautor;
+	sid.draw(); //sid 책 출력
+	cout << bookname<<" ->"<<bookautor;
+
+	/*
+	책 이름과 저자 입력: Great C++
+Bob
+책 이름 :Great C++
+책 저자 : Bob
+*/
+
+
+}
