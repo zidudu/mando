@@ -1,0 +1,50 @@
+
+#include <iostream>
+using namespace std;
+class Employee {
+	string name;
+	int age;
+	int salary;
+public:
+	void get(int a,int s, string n) {
+		name = n;
+		age = a;
+		salary = s;
+
+	}
+	void draw() {
+		cout << "employee1:" << endl;
+		cout << name<<endl;
+		cout << age<< endl;
+		cout << salary<< endl;
+	}
+};
+int main()
+{
+	string n;
+	int a;
+	int s;
+	//객체 생성
+	Employee employee;
+	//객체 값 입력
+	cout << "직원의 이름 : ";
+	cin >> n;
+	cout << "직원 나이 : ";
+	cin >> a;
+	cout << "직원 월급 :";
+	cin >> s;
+	//객체 값을 멤버함수에 넣기
+	employee.get(a, s, n);
+	//입력한 값 출력
+	employee.draw();
+
+}
+/*
+직원의 이름 : 김철수
+직원 나이 : 38
+직원 월급 :200000
+employee1:
+김철수
+38
+200000
+*/
