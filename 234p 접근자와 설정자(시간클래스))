@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Time {
+public:
+	Time(int h, int m); //생성자
+	void inc_hour();
+	void print(string p);
+	
+	int getHour() { return hour; }
+	int getMinute() { return minute; }
+	void setHour(int h) { hour = h; }
+	void setMinute(int m) { minute = m; }
+
+private:
+	int hour; //0~23
+	int minute; //0~59
+
+};
+//생성자
+Time::Time(int h, int m) {
+	hour = h;
+	minute = m;
+}
+//시간증가함수
+void Time::inc_hour() {
+	hour+=3; 
+	if (hour > 23) {
+		hour = hour-24; //24시면 0이되게하기
+	}
+		
+	
+}
+void Time::print(string p) {
+	cout << p<<hour << ":" << minute << endl;
+}
+int main() {
+	int h, m;
+	cout << "시간 입력 :";
+	cin >> h;
+	cout << "분 입력";
+	cin >> m;
+	Time a(0, 0); //h와 m에 0,0넣음
+	Time b(0, 0); //3시간이 지난 시각
+
+	a.setHour(h); //6시
+	a.setMinute(m); //30분
+
+	b = a; //a객체 복사해서 변수값 복사
+	b.inc_hour(); //시간 증가
+
+
+
+
+	a.print("현재 시각 => ");
+	b.print("3시간이 지난 시각 => ");
+	return 0;
+}
+/*
+시간 입력 :4
+분 입력30
+현재 시각 => 4:30
+3시간이 지난 시각 => 7:30
+*/
