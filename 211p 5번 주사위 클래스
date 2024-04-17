@@ -1,0 +1,28 @@
+
+#include <iostream>
+using namespace std;
+class Dice {
+	int dice1, dice2;
+public:
+	void roll() {
+		dice1 = (rand() % 6 + 1);
+		dice2 = (rand() % 6 + 1);
+
+	}
+	void draw() {
+		cout << "1번째 주사위 값: "<<dice1<<endl;
+		cout << "2번째 주사위 값: " << dice2 << endl;
+
+	}
+
+};
+int main()
+{
+	//주사위 객체 생성
+	Dice dice;
+	//주사위 난수를 돌림
+	dice.roll();
+	//주사위 값들을 출력
+	dice.draw();
+	
+}
