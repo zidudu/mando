@@ -1,0 +1,36 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+class Sum {
+
+	int n1,n2;
+public:
+	void init(int x,int y){
+		n1 = x;
+		n2 = y;
+	}
+	int add() {
+		return n1 + n2;
+	};
+};
+int main()
+{
+	int x, y;
+	Sum sumvalue;
+	cout << "첫번째 정수 입력 :";
+	cin >> x;
+	cout << "두번째 정수 입력: ";
+	cin >> y;
+	cout << "정수를 멤버변수에 넣기\n";
+	sumvalue.init(x, y);
+	cout << "두 정수를 더한 값: "<< sumvalue.add();
+
+
+}
+/*
+첫번째 정수 입력 :10
+두번째 정수 입력: 20
+정수를 멤버변수에 넣기
+두 정수를 더한 값: 30
+*/
