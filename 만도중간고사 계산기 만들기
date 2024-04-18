@@ -1,0 +1,136 @@
+#include <iostream>
+using namespace std;
+//클래스 정의
+class Calculator {
+	//변수
+	int class_x, class_y, class_sum;
+	char class_oper;
+public:
+	//함수
+	//생성자
+	Calculator(int x, int y, char oper) {
+		class_x = x;
+		class_y = y;
+		class_oper = oper;
+
+	};
+	//접근자
+	int getX() {return class_x;}
+	int getY() {return class_y;}
+	int getSum() {return class_sum;}
+	//설정자
+	void setX(int x){class_x = x;}
+	void setY(int y) {class_y = y;}
+	void setSum(int sum) {class_sum = sum;}
+	void setOper(char oper) { class_oper = oper; }
+	//출력함수
+	void print() {
+		cout << "결과 : " << class_x << class_oper << class_y << "= " << class_sum << endl;
+	};
+
+	//입력한 값을 계산하는 함수
+	void value_Calculate() { //매개변수 넣을지 말지 고민
+			switch (class_oper)
+			{
+			case '+':
+				class_sum = class_x + class_y;
+				break;
+			case '-':
+				class_sum = class_x - class_y;
+				break;
+			case '*':
+				class_sum = class_x * class_y;
+				break;
+			case '/':
+				if (class_y == 0) {
+					cout << "0으로 나눌수 없습니다 다시입력하세요 " << endl;
+					class_sum = class_x;
+					break;
+				}
+				else {
+					class_sum = class_x / class_y;
+					break;
+				}
+			default:
+				cout << "입력한 연산자가 이상합니다 다시 입력하세요";
+				break;
+			}
+
+		}
+
+		
+	};
+
+int main()
+{
+	//1.값 입력
+	//2.계산
+	//3.계산값 출력
+	//4.기존값에 계속 연산
+	//5.C나 Q입력하면 종료
+	while (true) {
+
+		int x=0, y=0, sum=0;
+		char oper=' ';
+		//1.계산할 값 입력
+		cout << "x값,연산값(+,-,*,/),y값 3개의값을 입력하세요[Q:종료,{C로 초기화할거면 아무숫자넣고 C입력}]=> "; //첫번째도 초기화 넣을지 고민 사실 안넣어도 초기화 된 상태라
+		cin >> x;
+		cin >> oper;
+		if (oper == 'Q') {
+
+			return 0;
+		}
+		else if (oper == 'C') {
+			cout << "값을 초기화합니다" << endl;
+			continue;
+		}
+		cin >> y;
+		//만약 Q입력할때
+		//1-1 입력값을 클래스에 넣기
+		Calculator calcul_Obj(x,y,oper);
+		//2.계산
+		calcul_Obj.value_Calculate();
+		while (true)
+		{
+
+			//3.계산값 출력
+			calcul_Obj.print();
+			sum= calcul_Obj.getSum(); //접근자 사용해 class_sum 값 다시 받음
+			x = sum; //계속 연산하기 전에 x에 최종값을 넣어둔다
+
+			//4.기존값에 계속 연산
+			//1.계산할 값 입력
+			//x값을 제외하고 더함
+			cout << "[연산값(+,-,*,/),y값 2개의값을 입력하세요[C:초기화,Q:종료]]=> "<<sum<<" ";
+			cin >> oper;
+			//만약 oper이 C면 바로 초기화 해버림
+			if (oper == 'C') {
+				//값 초기화해서 클래스값에 넣음
+				x = 0; y = 0; sum = 0;
+				calcul_Obj.setX(x);
+				calcul_Obj.setY(y);
+				calcul_Obj.setY(sum);
+				calcul_Obj.setOper(oper);
+
+				cout << "값을 초기화합니다" << endl;
+				break;
+			}
+			else if (oper == 'Q') {
+				cout << endl << "프로그램 종료합니다" << endl;
+				return 0;
+			}
+			cin >> y;
+			//만약 C입력할때
+			//만약 Q입력할때
+			//1-1 계산한 값을 클래스 변수에 넣음
+			calcul_Obj.setX(x);
+			calcul_Obj.setY(y);
+			calcul_Obj.setSum(sum);
+			calcul_Obj.setOper(oper);
+
+			//2.계산 
+			calcul_Obj.value_Calculate();
+		}
+	}
+}
+
