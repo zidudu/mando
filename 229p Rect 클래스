@@ -1,0 +1,58 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Rectangle{
+	int width, height,class_sum;
+public:
+	Rectangle(int x, int y);
+	int calculate();
+	void print();
+	void getSum(int sum);
+};
+Rectangle::Rectangle(int x, int y) {
+	width = x;
+	height = y;
+
+}
+void Rectangle::getSum(int sum) {
+	class_sum = sum;
+
+}
+
+int Rectangle::calculate() {
+	class_sum= width * height;
+	return width * height;
+}
+void Rectangle::print() {
+	cout << "사각형 가로:" << width << "세로:" << height << "의 면적은 " << class_sum<<endl;
+}
+
+int main()
+{
+
+	int x, y,sum;
+	//1.값 입력
+	cout << "값 입력하세요 :";
+	cin >> x >> y;
+	//1.1 값 클래스에넣기
+	Rectangle rect(x, y);
+	
+	//2.넣은 값 계산한 값을 sum 저장
+	sum=rect.calculate();
+
+	//2.1 sum을 접근자를 부름
+	rect.getSum(sum);
+
+	//3.출력하기
+	rect.print();
+
+	//사각형의 면적 구하기 
+	//1.값 넣기 
+	//2.넣은 값을 계산하기
+	//3.출력하기
+
+
+
+
+
+}
