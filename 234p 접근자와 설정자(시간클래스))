@@ -1,14 +1,16 @@
 #include <iostream>
-#include <string>
 using namespace std;
+//접근자:private로 선언된 멤버 변수들을 읽어서 외부로 전달해주는 함수 getter
+//설정자:외부에서 안전하게 멤버변수들을 변경할 수 있는 함수 setter
 class Time {
 public:
 	Time(int h, int m); //생성자
 	void inc_hour();
 	void print(string p);
-	
+	//접근자 함수
 	int getHour() { return hour; }
 	int getMinute() { return minute; }
+	//설정자 함수
 	void setHour(int h) { hour = h; }
 	void setMinute(int m) { minute = m; }
 
@@ -24,18 +26,19 @@ Time::Time(int h, int m) {
 }
 //시간증가함수
 void Time::inc_hour() {
-	hour+=3; 
+	hour += 3;
 	if (hour > 23) {
-		hour = hour-24; //24시면 0이되게하기
+		hour = hour - 24; //24시면 0이되게하기
 	}
-		
-	
+
+
 }
 void Time::print(string p) {
-	cout << p<<hour << ":" << minute << endl;
+	cout << p << hour << ":" << minute << endl;
 }
 int main() {
 	int h, m;
+	
 	cout << "시간 입력 :";
 	cin >> h;
 	cout << "분 입력";
