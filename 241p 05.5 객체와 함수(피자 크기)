@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Pizza {
+public:
+	Pizza(int s) : size(s) { };
+	int size;
+};
+void makeDouble(Pizza& p) {
+	p.size *= 2;
+}
+//Pizza&는 참조(reference)로 선언되었는데, 이는 함수 내에서 피자 객체를 변경할 수 있도록 하기 위함입니다.
+int main() {
+	Pizza pizza(10);
+	makeDouble(pizza);
+	cout << pizza.size << "인치 피자" << endl;
+
+
+
+
+
+}
