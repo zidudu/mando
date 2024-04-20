@@ -1,0 +1,105 @@
+#include <iostream>
+using namespace std;
+//클래스 정의
+class Calculator {
+	//변수
+	int class_x, class_y, class_sum=0;
+	char class_oper;
+public:
+	//함수
+	//생성자
+	//값 입력받아서 멤버변수에 저장함
+	//1.값을 입력해서 생성자에 넣기
+	Calculator(int x, int y, char oper) {
+		class_x = x;
+		class_y = y;
+		class_oper = oper;
+	};
+	//설정자
+	int setSum() { return class_sum; }
+	//출력함수
+	void print() {
+		cout << "결과 : " << class_x << class_oper << class_y << "= " << class_sum << endl;
+	};
+	//입력한 값을 계산하는 함수
+	//2.계산하는 함수
+	int value_Calculate() { //매개변수 넣을지 말지 고민
+			switch (class_oper)
+			{
+			case '+':
+				class_sum = class_x + class_y;
+				return class_sum;
+			case '-':
+				class_sum = class_x - class_y;
+				return class_sum;
+			case '*':
+				class_sum = class_x * class_y;
+				return class_sum;
+			case '/':
+				if (class_y == 0) {
+					cout << "0으로 나눌수 없습니다 다시입력하세요 " << endl;
+					class_sum = class_x;
+					return class_sum;
+				}
+				else {
+					class_sum = class_x / class_y;
+					return class_sum;
+				}
+			default:
+				cout << "입력한 연산자가 이상합니다 다시 입력하세요"<<endl;
+				class_oper = ' ';
+				return class_sum = NULL;
+			}
+	}
+};
+
+int main()
+{
+	int x = 0, y = 0, sum = 0; char oper = ' ';
+	while (true) {
+
+		//1.계산할 값 입력
+		cout << "x값을 입력하세요=> "; 
+		cin >> x;
+
+		//4.C나 Q입력하면 종료(초기화)
+		while (true)
+		{
+			cout << "연산자 (+,-,*,/)중 하나의 연산자를 입력하세요[Q:종료,C초기화]=> "<<x;
+			cin >> oper;
+			if (oper == 'C') {
+				//값 초기화해서 클래스값에 넣음
+				x = 0; y = 0; sum = 0; oper = ' ';
+				cout << "값을 초기화합니다" << endl;
+				break;
+			}
+			else if (oper == 'Q') {
+				cout << endl << "프로그램 종료합니다" << endl;
+				return 0;
+			}
+			cout << "y값을 입력하세요=> "<<x<<oper;
+			cin >> y;
+			//만약 Q입력할때
+			//1-1 입력값을 클래스에 넣기
+			Calculator calcul_Obj(x,y,oper); //객체 생성 및 생성자 실행
+			//2.계산
+			calcul_Obj.value_Calculate(); //계산한 값을 sum에 넣음
+			sum = calcul_Obj.setSum();
+			if (sum == NULL) {
+				break;
+			}
+			x= sum; //x에도 넣음
+
+			//3.계산값 출력
+			calcul_Obj.print();
+		}
+	}
+}
+
+//추상화:많은 정보들을 단순하게 바꿔서 기억하는거
+// 
+//1.값 입력
+//2.계산
+//3.계산값 출력
+//4.기존값에 계속 연산
+//5.C나 Q입력하면 종료
