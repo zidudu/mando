@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+class Calculator {
+	int class_x, class_y, class_sum;
+	char class_oper;
+
+public:
+	//1.입력
+	Calculator(int x, int y, char oper);
+	//2.계산
+	int calculate();
+	//3.출력
+	void print();
+
+	// 설정자
+
+};
