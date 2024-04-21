@@ -1,0 +1,43 @@
+
+#include "calculate.h"
+int main()
+{
+	int x, y, sum = 0;
+
+	char oper;
+	while (true) {
+		cout << "x값 입력:";
+		cin >> x;
+		while (true) {
+			cout << "연산자 값 입력 (C는 초기화,Q는 종료) : " << x;
+			cin >> oper;
+			if (oper == 'C') {
+				cout << "초기화합니다" << endl;
+				break;
+			}
+			else if (oper == 'Q') {
+				cout << "종료합니다" << endl;
+				return 0;
+			}
+			cout << "y값 입력 :" << x << oper;
+			cin >> y;
+
+			Calculator calcul_obj(x, y, oper);
+
+			sum = calcul_obj.calculate();
+			x = sum;
+
+			calcul_obj.print();
+
+		}
+	}
+
+}
+
+//추상화
+//계산기
+//1.입력
+//2.입력을 계산
+//3.출력
+//4.계쏙 연산
+//*c 초기화 Q 종료
