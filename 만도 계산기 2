@@ -1,0 +1,41 @@
+#include "calculate.h"
+Calculator::Calculator(int x, int y, char oper) {
+	class_x = x;
+	class_y = y;
+	class_oper = oper;
+}
+int Calculator::calculate() {
+	switch (class_oper)
+	{
+	case'+':
+		class_sum = class_x + class_y;
+		return class_sum;
+	case '-':
+		class_sum = class_x - class_y;
+		return class_sum;
+	case '*':
+		class_sum = class_x * class_y;
+		return class_sum;
+	case'/':
+		if (class_y == 0) {
+			cout << "0으로 나눌 수 없다" << endl;
+			class_sum = class_x;
+			return class_sum;
+			break;
+		}
+		else {
+			class_sum = class_x / class_y;
+			return class_sum;
+			break;
+		}
+	default:
+		cout << "연산자 값이 이상합니다" << endl;
+		class_sum = class_x;
+		class_oper = ' ';
+		return class_sum;
+		break;
+	}
+}
+void Calculator::print() {
+	cout <<" 결과:" << class_x << class_oper <<class_y<< " = " << class_sum << endl;
+}
